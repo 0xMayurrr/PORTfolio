@@ -5,48 +5,71 @@ import { Button } from "@/components/ui/button";
 
 interface Project {
   title: string;
+  subtitle: string;
   description: string;
-  problem: string;
   stack: string[];
   liveUrl?: string;
   repoUrl?: string;
   featured?: boolean;
-  snippet?: string;
 }
 
 const projects: Project[] = [
   {
-    title: "Credora Wallet",
+    title: "Credora",
+    subtitle: "Digital Certificate Issuer",
     description:
-      "A non-custodial wallet with on-chain credit scoring integration. Users connect, verify creditworthiness, and access undercollateralized DeFi lending — all from one interface.",
-    problem: "DeFi lending requires overcollateralization. Credora bridges off-chain credit data on-chain to unlock capital-efficient borrowing.",
-    stack: ["Solidity", "React", "ethers.js", "Hardhat", "TypeScript"],
-    liveUrl: "#",
-    repoUrl: "#",
+      "Blockchain-based certificate issuance and verification platform using Hyperledger Fabric with zero-knowledge proofs for privacy-preserving credential validation.",
+    stack: ["Hyperledger Fabric", "Node.js", "React.js", "ZK Proofs", "IPFS"],
+    liveUrl: "https://credora.netlify.app/",
     featured: true,
-    snippet: `// Credit attestation verification
-const isValid = await credora.verify(
-  attestation.hash,
-  attestation.signature,
-  { minScore: 650 }
-);`,
   },
   {
-    title: "DeFi Yield Aggregator",
+    title: "RPCForge",
+    subtitle: "Gateway Service",
     description:
-      "Smart contract system that routes liquidity across protocols to maximize APY. Auto-compounds and rebalances based on gas-adjusted returns.",
-    problem: "Manual yield farming across protocols is time-consuming and gas-inefficient.",
-    stack: ["Solidity", "Web3.js", "Next.js", "The Graph"],
-    liveUrl: "#",
-    repoUrl: "#",
+      "Custom JSON-RPC gateway service for Ethereum node interactions with request routing, caching, and load balancing.",
+    stack: ["Node.js", "Express.js", "React.js", "JSON-RPC", "Ethereum"],
+    repoUrl: "https://github.com/0xMayurrr/RPCForge",
   },
   {
-    title: "NFT Governance Module",
+    title: "CronoSmart",
+    subtitle: "Secure Marketplace",
     description:
-      "On-chain governance where voting power derives from NFT holdings and staking duration. Includes delegation, time-locked proposals, and quadratic voting.",
-    problem: "Token-based governance is plutocratic. NFT-weighted voting with time-lock creates more aligned decision making.",
-    stack: ["Solidity", "Foundry", "React", "wagmi"],
-    repoUrl: "#",
+      "Decentralized marketplace built on Cronos EVM with escrow-based transactions and seller verification.",
+    stack: ["Solidity", "Cronos EVM", "Node.js", "MongoDB", "React.js"],
+    repoUrl: "https://github.com/0xMayurrr/Cronosmart",
+  },
+  {
+    title: "OnTrade",
+    subtitle: "Automated Trading Tool",
+    description:
+      "Visual workflow builder for automated crypto trading strategies using AI-powered decision nodes and on-chain execution.",
+    stack: ["React.js", "React Flow", "Node.js", "OpenAI API", "Ethers.js"],
+    liveUrl: "https://on-trade.netlify.app/",
+  },
+  {
+    title: "Campus Aid",
+    subtitle: "Smart College Assistant",
+    description:
+      "AI-powered campus assistant that handles queries about courses, events, and resources using natural language processing.",
+    stack: ["Next.js", "Node.js", "MongoDB", "OpenAI API", "Firebase"],
+    liveUrl: "https://campus-aid-buddy-440ad.web.app/",
+  },
+  {
+    title: "Rotaract Dashboard",
+    subtitle: "Charity Manager",
+    description:
+      "Full-stack management platform for Rotaract club operations with transparent fund tracking on blockchain.",
+    stack: ["React.js", "Node.js", "MongoDB", "Hyperledger Fabric", "REST APIs"],
+    liveUrl: "https://rotdashboard.netlify.app/",
+  },
+  {
+    title: "OrgaChain",
+    subtitle: "Supply Tracker",
+    description:
+      "End-to-end supply chain tracking solution with on-chain provenance verification and decentralized storage.",
+    stack: ["React.js", "Solidity", "Ethers.js", "IPFS", "Node.js"],
+    liveUrl: "https://orga-chain.vercel.app/",
   },
 ];
 
@@ -65,74 +88,53 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       transition={{
         duration: 0.6,
         ease: [0.16, 1, 0.3, 1],
-        delay: index * 0.1,
+        delay: index * 0.08,
       }}
     >
-      <div className={`${project.featured ? "md:flex md:gap-8" : ""}`}>
-        <div className="flex-1">
-          <div className="flex items-center gap-3 mb-4">
-            {project.featured && (
-              <span className="text-xs font-mono uppercase tracking-widest text-accent border border-accent px-2 py-0.5">
-                Featured
-              </span>
-            )}
-            <h3 className="text-xl md:text-2xl font-bold font-mono tracking-tight">
-              {project.title}
-            </h3>
-          </div>
+      <div className="flex items-center gap-3 mb-3">
+        {project.featured && (
+          <span className="text-xs font-mono uppercase tracking-widest text-accent border border-accent px-2 py-0.5">
+            Featured
+          </span>
+        )}
+        <h3 className="text-xl md:text-2xl font-bold font-mono tracking-tight">
+          {project.title}
+        </h3>
+      </div>
 
-          <p className="text-muted-foreground text-pretty mb-3 font-body">
-            {project.description}
-          </p>
+      <p className="text-sm font-mono text-primary mb-3">{project.subtitle}</p>
 
-          <p className="text-sm text-muted-foreground/70 mb-5 font-body italic">
-            ↳ {project.problem}
-          </p>
+      <p className="text-muted-foreground text-pretty mb-4 font-body text-sm leading-relaxed">
+        {project.description}
+      </p>
 
-          <div className="flex flex-wrap gap-2 mb-6">
-            {project.stack.map((tech) => (
-              <span
-                key={tech}
-                className="text-xs font-mono px-2 py-1 bg-secondary text-secondary-foreground border border-border"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+      <div className="flex flex-wrap gap-2 mb-5">
+        {project.stack.map((tech) => (
+          <span
+            key={tech}
+            className="text-xs font-mono px-2 py-1 bg-secondary text-secondary-foreground border border-border"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
 
-          <div className="flex gap-3">
-            {project.liveUrl && (
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="sm" className="gap-1.5 text-xs">
-                  <ExternalLink className="w-3 h-3" />
-                  Live Demo
-                </Button>
-              </a>
-            )}
-            {project.repoUrl && (
-              <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
-                <Button variant="ghost" size="sm" className="gap-1.5 text-xs text-muted-foreground">
-                  <Github className="w-3 h-3" />
-                  Source
-                </Button>
-              </a>
-            )}
-          </div>
-        </div>
-
-        {project.featured && project.snippet && (
-          <div className="mt-6 md:mt-0 md:w-80 flex-shrink-0">
-            <div className="bg-background border-brutal p-4 overflow-x-auto">
-              <div className="flex items-center gap-1.5 mb-3">
-                <span className="w-2.5 h-2.5 rounded-full bg-destructive/60" />
-                <span className="w-2.5 h-2.5 rounded-full bg-accent/60" />
-                <span className="w-2.5 h-2.5 rounded-full bg-primary/60" />
-              </div>
-              <pre className="text-xs font-mono text-muted-foreground leading-relaxed">
-                <code>{project.snippet}</code>
-              </pre>
-            </div>
-          </div>
+      <div className="flex gap-3">
+        {project.liveUrl && (
+          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+            <Button variant="outline" size="sm" className="gap-1.5 text-xs active:scale-[0.97]">
+              <ExternalLink className="w-3 h-3" />
+              Live Demo
+            </Button>
+          </a>
+        )}
+        {project.repoUrl && (
+          <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+            <Button variant="ghost" size="sm" className="gap-1.5 text-xs text-muted-foreground active:scale-[0.97]">
+              <Github className="w-3 h-3" />
+              Source
+            </Button>
+          </a>
         )}
       </div>
     </motion.article>
