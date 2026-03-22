@@ -8,16 +8,15 @@ interface TechCategory {
 
 const techCategories: TechCategory[] = [
   {
-    name: "Blockchain",
+    name: "Web3",
     items: [
       { name: "Solidity", level: "proficient" },
-      { name: "ethers.js", level: "proficient" },
-      { name: "Web3.js", level: "proficient" },
+      { name: "Ethereum", level: "proficient" },
+      { name: "Web3.js/Ethers.js", level: "proficient" },
       { name: "Hardhat", level: "proficient" },
-      { name: "Foundry", level: "proficient" },
-      { name: "The Graph", level: "learning" },
-      { name: "wagmi", level: "proficient" },
-      { name: "Chainlink", level: "learning" },
+      { name: "MetaMask", level: "proficient" },
+      { name: "IPFS", level: "proficient" },
+      { name: "Hyperledger Fabric", level: "proficient" },
     ],
   },
   {
@@ -25,27 +24,42 @@ const techCategories: TechCategory[] = [
     items: [
       { name: "React", level: "proficient" },
       { name: "Next.js", level: "proficient" },
-      { name: "TypeScript", level: "proficient" },
       { name: "Tailwind CSS", level: "proficient" },
-      { name: "Framer Motion", level: "learning" },
+      { name: "Three.js", level: "learning" },
     ],
   },
   {
     name: "Backend",
     items: [
       { name: "Node.js", level: "proficient" },
-      { name: "PostgreSQL", level: "proficient" },
-      { name: "Redis", level: "learning" },
-      { name: "GraphQL", level: "proficient" },
+      { name: "Python", level: "proficient" },
+      { name: "MongoDB", level: "proficient" },
+      { name: "MySQL", level: "proficient" },
+    ],
+  },
+  {
+    name: "AI/ML",
+    items: [
+      { name: "OpenAI API", level: "proficient" },
+      { name: "Machine Learning", level: "learning" },
+      { name: "Data Analysis", level: "proficient" },
+      { name: "LangChain", level: "learning" },
+    ],
+  },
+  {
+    name: "Deployment",
+    items: [
+      { name: "Vercel", level: "proficient" },
+      { name: "Docker", level: "proficient" },
+      { name: "Git/GitHub", level: "proficient" },
     ],
   },
   {
     name: "Tools",
     items: [
-      { name: "Git", level: "proficient" },
-      { name: "Docker", level: "proficient" },
-      { name: "CI/CD", level: "proficient" },
-      { name: "Vercel", level: "proficient" },
+      { name: "Figma", level: "proficient" },
+      { name: "VS Code", level: "proficient" },
+      { name: "Postman", level: "proficient" },
     ],
   },
 ];
@@ -53,7 +67,7 @@ const techCategories: TechCategory[] = [
 const TechStackSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.15 });
-  const [activeCategory, setActiveCategory] = useState("Blockchain");
+  const [activeCategory, setActiveCategory] = useState("Web3");
 
   return (
     <section id="stack" className="px-6 md:px-16 lg:px-24 py-24">
