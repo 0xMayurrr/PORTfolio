@@ -4,7 +4,6 @@ import ProjectsSection from "@/components/ProjectsSection";
 import TechStackSection from "@/components/TechStackSection";
 import OpenSourceSection from "@/components/OpenSourceSection";
 import FreelancingSection from "@/components/FreelancingSection";
-import ExperienceSection from "@/components/ExperienceSection";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
 
@@ -15,17 +14,15 @@ const Index = () => {
       <main>
         <HeroSection />
         <div className="mx-6 md:mx-16 lg:mx-24 border-t border-border" />
-        <ProjectsSection />
+        <AboutSection />
         <div className="mx-6 md:mx-16 lg:mx-24 border-t border-border" />
         <TechStackSection />
+        <div className="mx-6 md:mx-16 lg:mx-24 border-t border-border" />
+        <ProjectsSection />
         <div className="mx-6 md:mx-16 lg:mx-24 border-t border-border" />
         <OpenSourceSection />
         <div className="mx-6 md:mx-16 lg:mx-24 border-t border-border" />
         <FreelancingSection />
-        <div className="mx-6 md:mx-16 lg:mx-24 border-t border-border" />
-        <ExperienceSection />
-        <div className="mx-6 md:mx-16 lg:mx-24 border-t border-border" />
-        <AboutSection />
         <div className="mx-6 md:mx-16 lg:mx-24 border-t border-border" />
         <ContactSection />
       </main>
