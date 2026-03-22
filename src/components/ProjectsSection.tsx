@@ -1,6 +1,6 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { ExternalLink, Github } from "lucide-react";
+import { motion, useInView, useAnimationFrame, useMotionValue } from "framer-motion";
+import { useRef, useState } from "react";
+import { ExternalLink, Github, FolderGit2, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface Project {
@@ -73,100 +73,173 @@ const projects: Project[] = [
   },
 ];
 
-const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
-
-  return (
-    <motion.article
-      ref={ref}
-      className={`border-brutal bg-card p-6 md:p-8 transition-all duration-200 hover:border-primary group ${
-        project.featured ? "md:col-span-2" : ""
-      }`}
-      initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-      animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-      transition={{
-        duration: 0.6,
-        ease: [0.16, 1, 0.3, 1],
-        delay: index * 0.08,
-      }}
-    >
-      <div className="flex items-center gap-3 mb-3">
-        {project.featured && (
-          <span className="text-xs font-mono uppercase tracking-widest text-accent border border-accent px-2 py-0.5">
-            Featured
-          </span>
-        )}
-        <h3 className="text-xl md:text-2xl font-bold font-mono tracking-tight">
-          {project.title}
-        </h3>
-      </div>
-
-      <p className="text-sm font-mono text-primary mb-3">{project.subtitle}</p>
-
-      <p className="text-muted-foreground text-pretty mb-4 font-body text-sm leading-relaxed">
-        {project.description}
-      </p>
-
-      <div className="flex flex-wrap gap-2 mb-5">
-        {project.stack.map((tech) => (
-          <span
-            key={tech}
-            className="text-xs font-mono px-2 py-1 bg-secondary text-secondary-foreground border border-border"
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
-
-      <div className="flex gap-3">
-        {project.liveUrl && (
-          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-            <Button variant="outline" size="sm" className="gap-1.5 text-xs active:scale-[0.97]">
-              <ExternalLink className="w-3 h-3" />
-              Live Demo
-            </Button>
-          </a>
-        )}
-        {project.repoUrl && (
-          <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
-            <Button variant="ghost" size="sm" className="gap-1.5 text-xs text-muted-foreground active:scale-[0.97]">
-              <Github className="w-3 h-3" />
-              Source
-            </Button>
-          </a>
-        )}
-      </div>
-    </motion.article>
-  );
-};
+const CARD_WIDTH = 360;
+const CARD_GAP = 20;
+const STEP = CARD_WIDTH + CARD_GAP;
 
 const ProjectsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const [active, setActive] = useState(0);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const prev = () => setActive((a) => Math.max(0, a - 1));
+  const next = () => setActive((a) => Math.min(projects.length - 1, a + 1));
 
   return (
-    <section id="projects" className="px-6 md:px-16 lg:px-24 py-24">
+    <section id="projects" className="px-6 md:px-16 lg:px-24 py-24 overflow-hidden">
+      {/* Header */}
       <motion.div
         ref={ref}
+        className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12"
         initial={{ opacity: 0, y: 16 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="mb-12"
       >
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">
-          // projects
-        </h2>
-        <p className="text-muted-foreground font-body">
-          Things I've built that solve real problems.
-        </p>
+        <div>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">
+            // projects
+          </h2>
+          <p className="text-muted-foreground font-body text-sm">
+            things i've built. drag or use the arrows.
+          </p>
+        </div>
+
+        {/* Arrow controls */}
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-mono text-muted-foreground mr-2">
+            {String(active + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
+          </span>
+          <button
+            onClick={prev}
+            disabled={active === 0}
+            className="w-9 h-9 border border-border flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-colors duration-200 disabled:opacity-30 disabled:pointer-events-none"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <button
+            onClick={next}
+            disabled={active === projects.length - 1}
+            className="w-9 h-9 border border-border flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-colors duration-200 disabled:opacity-30 disabled:pointer-events-none"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {projects.map((project, i) => (
-          <ProjectCard key={project.title} project={project} index={i} />
+      {/* Carousel track */}
+      <motion.div
+        className="overflow-hidden"
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        <motion.div
+          ref={trackRef}
+          className="flex gap-5 cursor-grab active:cursor-grabbing"
+          drag="x"
+          dragConstraints={{
+            left: -((projects.length - 1) * STEP),
+            right: 0,
+          }}
+          dragElastic={0.08}
+          dragTransition={{ bounceStiffness: 300, bounceDamping: 30 }}
+          animate={{ x: -(active * STEP) }}
+          transition={{ type: "spring", stiffness: 300, damping: 35 }}
+          onDragEnd={(_, info) => {
+            const threshold = STEP / 3;
+            if (info.offset.x < -threshold) next();
+            else if (info.offset.x > threshold) prev();
+          }}
+          style={{ width: `${projects.length * STEP}px` }}
+        >
+          {projects.map((project, i) => (
+            <motion.article
+              key={project.title}
+              className="flex-shrink-0 border-brutal bg-card flex flex-col"
+              style={{ width: CARD_WIDTH }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: i * 0.06 }}
+            >
+              {/* Card top bar */}
+              <div className="flex items-center justify-between px-5 py-3 border-b border-border">
+                <div className="flex gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-border" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-border" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-border" />
+                </div>
+                {project.featured && (
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-primary border border-primary px-2 py-0.5">
+                    featured
+                  </span>
+                )}
+              </div>
+
+              {/* Card body */}
+              <div className="flex flex-col flex-1 p-6">
+                <p className="text-xs font-mono text-muted-foreground mb-1 uppercase tracking-widest">
+                  {project.subtitle}
+                </p>
+                <h3 className="text-2xl font-bold font-mono tracking-tight mb-4">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-muted-foreground font-body leading-relaxed flex-1 mb-6">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-1.5 mb-6">
+                  {project.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-[11px] font-mono px-2 py-0.5 bg-secondary text-secondary-foreground border border-border"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex gap-2 mt-auto pt-4 border-t border-border">
+                  {project.liveUrl && (
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                      <Button variant="outline" size="sm" className="gap-1.5 text-xs font-mono active:scale-[0.97]">
+                        <ExternalLink className="w-3 h-3" />
+                        Live
+                      </Button>
+                    </a>
+                  )}
+                  {project.repoUrl && (
+                    <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                      <Button variant="ghost" size="sm" className="gap-1.5 text-xs font-mono text-muted-foreground active:scale-[0.97]">
+                        <Github className="w-3 h-3" />
+                        Source
+                      </Button>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </motion.div>
+      </motion.div>
+
+      {/* Dot indicators */}
+      <motion.div
+        className="flex gap-1.5 mt-8"
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : {}}
+        transition={{ delay: 0.4 }}
+      >
+        {projects.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setActive(i)}
+            className={`h-0.5 transition-all duration-300 ${
+              i === active ? "bg-primary w-6" : "bg-border w-3"
+            }`}
+          />
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };
