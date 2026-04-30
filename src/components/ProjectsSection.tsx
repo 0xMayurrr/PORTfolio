@@ -32,12 +32,13 @@ const projects: Project[] = [
     repoUrl: "https://github.com/0xMayurrr/RPCForge",
   },
   {
-    title: "CronoSmart",
-    subtitle: "Secure Marketplace",
+    title: "ChainSplit",
+    subtitle: "Decentralized Expense Splitting",
     description:
-      "Decentralized marketplace built on Cronos EVM with escrow-based transactions and seller verification.",
-    stack: ["Solidity", "Cronos EVM", "Node.js", "MongoDB", "React.js"],
-    repoUrl: "https://github.com/0xMayurrr/Cronosmart",
+      "A decentralized expense splitting platform on Cronos EVM using a greedy debt-minimization algorithm for peer-to-peer settlements without middlemen.",
+    stack: ["Solidity", "Cronos EVM", "React", "TypeScript", "Node.js", "MongoDB"],
+    liveUrl: "https://chain-split.vercel.app",
+    repoUrl: "https://github.com/0xMayurrr/ChainSplit",
   },
   {
     title: "OnTrade",
@@ -62,14 +63,6 @@ const projects: Project[] = [
       "Full-stack management platform for Rotaract club operations with transparent fund tracking on blockchain.",
     stack: ["React.js", "Node.js", "MongoDB", "Hyperledger Fabric", "REST APIs"],
     liveUrl: "https://rotdashboard.netlify.app/",
-  },
-  {
-    title: "OrgaChain",
-    subtitle: "Supply Tracker",
-    description:
-      "End-to-end supply chain tracking solution with on-chain provenance verification and decentralized storage.",
-    stack: ["React.js", "Solidity", "Ethers.js", "IPFS", "Node.js"],
-    liveUrl: "https://orga-chain.vercel.app/",
   },
 ];
 
