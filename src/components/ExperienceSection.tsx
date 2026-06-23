@@ -6,79 +6,89 @@ const ExperienceSection = () => {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section id="experience" className="px-6 md:px-16 lg:px-24 py-24">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-
-        {/* Left: Title */}
+    <section id="experience" className="px-6 md:px-16 lg:px-24 py-20 bg-background border-t border-border/50">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-4"
+          transition={{ duration: 0.5 }}
+          className="mb-12"
         >
-          <div className="sticky top-24">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              // current focus
-            </h2>
-            <p className="text-muted-foreground font-body text-sm leading-relaxed mb-8">
-              what i've been up to lately.
-            </p>
-
-            <div className="space-y-3">
-              <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest">focus areas</p>
-              {[
-                "blockchain dApps",
-                "smart contracts",
-                "ai-powered interfaces",
-                "open source",
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-primary" />
-                  <span className="text-sm font-mono text-muted-foreground">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-foreground">
+            EXPERIENCE
+          </h2>
         </motion.div>
 
-        {/* Right: Content */}
-        <div className="lg:col-span-8">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-            className="border-brutal bg-card p-8 md:p-10 hover:border-primary transition-colors duration-300"
-          >
-            {/* Header row */}
-            <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 mb-6">
-              <h3 className="text-xl md:text-2xl font-bold font-mono">
-                Independent Developer
-              </h3>
-              <span className="text-sm font-mono text-primary">
-                2024 — Present
-              </span>
-            </div>
-
-            {/* Main text */}
-            <p className="text-muted-foreground font-body text-base md:text-lg leading-relaxed max-w-2xl mb-8">
-              Building cool shit on the web — both web2 and web3. 8+ projects ranging from blockchain wallets and dApps to creative web apps and experimental interfaces. Focus on making things that look good, feel smooth, and actually work.
-            </p>
-
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2">
-              {["web3", "dApps", "blockchain", "react", "node.js", "solidity", "ai tools", "open source"].map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs font-mono px-2.5 py-1 bg-secondary text-secondary-foreground border border-border hover:border-primary hover:text-foreground transition-colors duration-200"
-                >
-                  {tag}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-8">
+          {/* Left Side: Timeline */}
+          <div className="relative pl-5 border-l border-border/40 lg:w-3/5">
+            <motion.div
+              initial={{ opacity: 0, x: -16 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="relative group"
+            >
+              <div className="absolute -left-[26px] top-1.5 w-2.5 h-2.5 rounded-full bg-background border-2 border-primary group-hover:bg-primary transition-colors duration-300" />
+              
+              <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-2">
+                <h3 className="text-xl md:text-2xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
+                  Web3 SDE Intern
+                </h3>
+                <span className="text-sm font-mono text-muted-foreground">
+                  @ Confidential
                 </span>
-              ))}
+              </div>
+              
+              <p className="text-xs font-mono text-accent uppercase tracking-widest mb-4">
+                2024 — Present
+              </p>
+
+              <div className="space-y-2">
+                <p className="text-sm text-muted-foreground font-body leading-relaxed max-w-xl">
+                  <span className="text-primary/50 mr-2 font-mono">{"->"}</span>
+                  Building core protocol infrastructure and ensuring RPC reliability.
+                </p>
+                <p className="text-sm text-muted-foreground font-body leading-relaxed max-w-xl">
+                  <span className="text-primary/50 mr-2 font-mono">{"->"}</span>
+                  Architecting highly scalable, non-custodial smart contract layers.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right Side: Visual Data Widget to fill empty space */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="lg:w-2/5 flex items-center justify-center lg:justify-end"
+          >
+            <div className="w-full max-w-sm border border-border bg-card/20 p-6 rounded-lg backdrop-blur-sm flex flex-col gap-4">
+              <div className="flex justify-between items-center border-b border-border/50 pb-2">
+                <span className="text-xs font-mono text-muted-foreground">STATUS</span>
+                <span className="text-xs font-mono text-primary flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                  ACTIVE_DEPLOYMENT
+                </span>
+              </div>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-muted-foreground">Focus</span>
+                  <span className="text-sm font-medium text-right">Web3, AI & Emerging Technologies</span>
+                </div>
+                <div className="flex justify-between items-center mt-2">
+                  <span className="text-sm text-muted-foreground">Current Stack</span>
+                  <span className="text-sm font-medium text-right">Solidity / TypeScript</span>
+                </div>
+                <div className="flex justify-between items-center mt-2">
+                  <span className="text-sm text-muted-foreground">Location</span>
+                  <span className="text-sm font-medium text-right">Remote</span>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
-
       </div>
     </section>
   );

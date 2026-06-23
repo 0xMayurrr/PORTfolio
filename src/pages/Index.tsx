@@ -1,29 +1,27 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import ExperienceSection from "@/components/ExperienceSection";
+import BuildicySection from "@/components/BuildicySection";
 import ProjectsSection from "@/components/ProjectsSection";
 import TechStackSection from "@/components/TechStackSection";
 import OpenSourceSection from "@/components/OpenSourceSection";
-import FreelancingSection from "@/components/FreelancingSection";
-import AboutSection from "@/components/AboutSection";
+import TrackRecordSection from "@/components/TrackRecordSection";
+import InsightsSection from "@/components/InsightsSection";
 import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background font-sans selection:bg-primary/30">
       <Navbar />
       <main>
         <HeroSection />
-        <div className="mx-6 md:mx-16 lg:mx-24 border-t border-border" />
-        <AboutSection />
-        <div className="mx-6 md:mx-16 lg:mx-24 border-t border-border" />
-        <TechStackSection />
-        <div className="mx-6 md:mx-16 lg:mx-24 border-t border-border" />
+        <ExperienceSection />
+        <BuildicySection />
         <ProjectsSection />
-        <div className="mx-6 md:mx-16 lg:mx-24 border-t border-border" />
+        <TechStackSection />
         <OpenSourceSection />
-        <div className="mx-6 md:mx-16 lg:mx-24 border-t border-border" />
-        <FreelancingSection />
-        <div className="mx-6 md:mx-16 lg:mx-24 border-t border-border" />
+        <TrackRecordSection />
+        <InsightsSection />
         <ContactSection />
       </main>
       <footer className="px-6 md:px-16 lg:px-24 py-6 border-t border-border">

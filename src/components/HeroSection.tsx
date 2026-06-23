@@ -14,45 +14,50 @@ const HeroSection = () => {
           <div className="flex items-center gap-3 mb-8">
             <span className="inline-block w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
             <span className="text-sm font-mono text-muted-foreground tracking-wide uppercase">
-              Open to work
+              Web3 SDE Intern · CTO & Co-founder @ Buildicy
             </span>
           </div>
         </motion.div>
 
         <motion.p
-          className="text-sm font-mono text-muted-foreground mb-3 tracking-wide"
+          className="text-sm font-mono text-muted-foreground mb-3 tracking-wide flex items-center gap-2"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
         >
-          # hello
+          <span className="text-primary">&gt;</span> system.init()
         </motion.p>
 
         <motion.h1
-          className="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-[0.95] tracking-tight text-balance mb-4"
+          className="text-5xl sm:text-6xl md:text-[5.5rem] font-black leading-[0.9] tracking-tighter text-balance mb-6 bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground/90 to-muted-foreground"
           initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
         >
-          MAYUR P<span className="text-primary animate-blink">_</span>
+          Mayur P<span className="text-primary animate-pulse">.</span>
         </motion.h1>
 
-        <motion.p
-          className="text-lg md:text-xl text-accent font-mono font-semibold mb-6"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
+        <motion.div
+          className="flex flex-col gap-2 mb-8 border-l-2 border-primary pl-5 py-1"
+          initial={{ opacity: 0, x: -16 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.18 }}
         >
-          Digital Solutions Creator
-        </motion.p>
+          <p className="text-xl md:text-2xl font-mono font-bold text-foreground">
+            Web3 Infrastructure Engineer
+          </p>
+          <p className="text-xs md:text-sm font-mono text-muted-foreground uppercase tracking-widest">
+            RPC Gateways // ZK Protocols // AI Systems
+          </p>
+        </motion.div>
 
         <motion.p
-          className="text-lg md:text-xl text-muted-foreground max-w-xl text-pretty mb-10 font-body"
+          className="text-base md:text-lg text-muted-foreground max-w-lg text-pretty mb-10 font-body leading-relaxed"
           initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
         >
-          I build fast, secure, and smart web applications that solve real problems — from decentralized platforms to AI-powered tools.
+          I engineer the critical layers beneath modern dApps. No fluff, just scalable infrastructure, non-custodial smart contracts, and privacy-preserving identity systems.
         </motion.p>
 
         <motion.div
@@ -61,14 +66,14 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
         >
-          <a href="#contact">
+          <a href="#projects">
             <Button variant="brutal" size="lg" className="gap-2 font-mono">
-              EXECUTE_CONTACT
+              Explore my work
             </Button>
           </a>
-          <a href="#projects">
+          <a href="https://coderlegion.com/20276/beyond-identity-rethinking-trust-infrastructure-through-zero-knowledge-verification" target="_blank" rel="noopener noreferrer">
             <Button variant="outline" size="lg" className="font-mono">
-              VIEW_LOGS
+              Read my research
             </Button>
           </a>
         </motion.div>
@@ -109,31 +114,33 @@ const HeroSection = () => {
 
         {/* Live GitHub Stats (Mac OS Window Style) */}
         <motion.div 
-          className="relative w-full max-w-sm md:max-w-md lg:max-w-lg"
+          className="relative w-full max-w-sm md:max-w-md lg:max-w-lg mt-8 group cursor-crosshair"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
+          whileHover={{ scale: 1.02, rotate: -1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-black/60 backdrop-blur-md shadow-2xl flex flex-col">
+          <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 to-accent/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+          <div className="relative rounded-2xl overflow-hidden border border-border bg-card shadow-2xl flex flex-col group-hover:border-primary/50 transition-colors duration-500">
             {/* Window Header */}
-            <div className="flex items-center gap-2 px-4 py-3 bg-white/5 border-b border-white/10">
+            <div className="flex items-center justify-between px-4 py-3 bg-secondary/30 border-b border-border">
               <div className="flex gap-1.5">
                 <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
                 <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
               </div>
-              <div className="ml-2 text-xs font-mono text-white/50 flex-1 text-center truncate pr-8">
-                github.com/0xMayurrr
+              <div className="text-xs font-mono text-muted-foreground flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                LIVE
               </div>
             </div>
             
             {/* Live Stats Content */}
-            <div className="flex flex-col bg-[#0d1117] px-2 pt-2 pb-1">
-              {/* GitHub Contribution Activity Graph */}
+            <div className="flex flex-col bg-background/50 px-2 pt-2 pb-1">
               <img
-                src="https://github-readme-activity-graph.vercel.app/graph?username=0xMayurrr&bg_color=0d1117&color=58a6ff&line=58a6ff&point=39d353&area=true&area_color=39d35320&hide_border=true&radius=4"
+                src="https://github-readme-activity-graph.vercel.app/graph?username=0xMayurrr&bg_color=00000000&color=58a6ff&line=58a6ff&point=39d353&area=true&area_color=39d35320&hide_border=true&radius=4"
                 alt="GitHub Contribution Graph"
-                className="w-full h-auto"
+                className="w-full h-auto mix-blend-screen opacity-90 group-hover:opacity-100 transition-opacity"
                 draggable="false"
               />
             </div>

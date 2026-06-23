@@ -1,13 +1,23 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Github, Linkedin, Send, Mail } from "lucide-react";
+import { Github, Linkedin, Send, Mail, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const socials = [
   {
+    label: "mayurkarthick2006@gmail.com",
+    href: "mailto:mayurkarthick2006@gmail.com",
+    icon: Mail,
+  },
+  {
     label: "github.com/0xMayurrr",
     href: "https://github.com/0xMayurrr",
     icon: Github,
+  },
+  {
+    label: "x.com/0xMayurrr",
+    href: "https://x.com/0xMayurrr",
+    icon: Twitter,
   },
   {
     label: "linkedin.com/in/mayurp03",
@@ -61,10 +71,10 @@ const ContactSection = () => {
           <div className="sticky top-24">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 flex items-center gap-3">
               <Mail className="w-8 h-8 text-primary" />
-              // contact
+              // let's build something that matters.
             </h2>
             <p className="text-muted-foreground font-body leading-relaxed mb-8">
-              Let's build something together. I'm always open to discussing products, design work, or potential partnerships.
+              I'm looking for Web3 Infrastructure / Protocol Engineering roles — internship or full-time. I work across Web3, full-stack, and AI. Remote-first, open to relocation for the right team.
             </p>
 
             <div className="space-y-4">
