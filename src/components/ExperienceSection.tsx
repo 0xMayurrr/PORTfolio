@@ -22,7 +22,8 @@ const ExperienceSection = () => {
 
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-8">
           {/* Left Side: Timeline */}
-          <div className="relative pl-5 border-l border-border/40 lg:w-3/5">
+          <div className="relative pl-5 border-l border-border/40 lg:w-3/5 flex flex-col gap-12">
+            {/* GetNow Solutions */}
             <motion.div
               initial={{ opacity: 0, x: -16 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -30,28 +31,97 @@ const ExperienceSection = () => {
               className="relative group"
             >
               <div className="absolute -left-[26px] top-1.5 w-2.5 h-2.5 rounded-full bg-background border-2 border-primary group-hover:bg-primary transition-colors duration-300" />
-              
+
               <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-2">
                 <h3 className="text-xl md:text-2xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
-                  Web3 SDE Intern
+                  Web3 Software Engineer Intern
                 </h3>
                 <span className="text-sm font-mono text-muted-foreground">
-                  @ Confidential
+                  @ GetNow Solutions
                 </span>
               </div>
-              
+
               <p className="text-xs font-mono text-accent uppercase tracking-widest mb-4">
-                2024 — Present
+                March 2026 — Present
               </p>
 
               <div className="space-y-2">
                 <p className="text-sm text-muted-foreground font-body leading-relaxed max-w-xl">
                   <span className="text-primary/50 mr-2 font-mono">{"->"}</span>
-                  Building core protocol infrastructure and ensuring RPC reliability.
+                  Designing and deploying secure smart contract layers and multi-chain wallet integrations.
                 </p>
                 <p className="text-sm text-muted-foreground font-body leading-relaxed max-w-xl">
                   <span className="text-primary/50 mr-2 font-mono">{"->"}</span>
-                  Architecting highly scalable, non-custodial smart contract layers.
+                  Optimizing Web3 transaction flows, high-performance RPC networks, and AI-native blockchain systems.
+                </p>
+              </div>
+            </motion.div>
+
+           
+            {/* E-Cell */}
+            <motion.div
+              initial={{ opacity: 0, x: -16 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="relative group"
+            >
+              <div className="absolute -left-[26px] top-1.5 w-2.5 h-2.5 rounded-full bg-background border-2 border-primary group-hover:bg-primary transition-colors duration-300" />
+
+              <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-2">
+                <h3 className="text-xl md:text-2xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
+                  Led Innovation
+                </h3>
+                <span className="text-sm font-mono text-muted-foreground">
+                  @ E-Cell Innovation & Incubation Cell
+                </span>
+              </div>
+
+              <p className="text-xs font-mono text-accent uppercase tracking-widest mb-4">
+                2024 — 2026
+              </p>
+
+              <div className="space-y-2">
+                <p className="text-sm text-muted-foreground font-body leading-relaxed max-w-xl">
+                  <span className="text-primary/50 mr-2 font-mono">{"->"}</span>
+                  Pioneered student incubation programs, helping transition ideas into functional Web3/AI startups.
+                </p>
+                <p className="text-sm text-muted-foreground font-body leading-relaxed max-w-xl">
+                  <span className="text-primary/50 mr-2 font-mono">{"->"}</span>
+                  Organized hackathons, developer bootcamps, and technical workshops on emergent technologies.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* AICRASIE */}
+            <motion.div
+              initial={{ opacity: 0, x: -16 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="relative group"
+            >
+              <div className="absolute -left-[26px] top-1.5 w-2.5 h-2.5 rounded-full bg-background border-2 border-primary group-hover:bg-primary transition-colors duration-300" />
+
+              <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-2">
+                <h3 className="text-xl md:text-2xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
+                  Innovation Ambassador
+                </h3>
+                <span className="text-sm font-mono text-muted-foreground">
+                  @ AICRASIE
+                </span>
+              </div>
+
+              <p className="text-xs font-mono text-accent uppercase tracking-widest mb-4">
+                Feb 2026 — May 2026
+              </p>
+
+              <div className="space-y-2">
+                <p className="text-sm text-muted-foreground font-body leading-relaxed max-w-xl">
+                  <span className="text-primary/50 mr-2 font-mono">{"->"}</span>
+                  Advocated for robotics, AI integration, and blockchain developer education in partnership with national councils.
+                </p>
+                <p className="text-sm text-muted-foreground font-body leading-relaxed max-w-xl">
+                  <span className="text-primary/50 mr-2 font-mono">{"->"}</span>
+                  Mentored aspiring developers and coordinated tech evangelism programs across student chapters.
                 </p>
               </div>
             </motion.div>

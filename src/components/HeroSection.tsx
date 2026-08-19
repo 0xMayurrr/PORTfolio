@@ -14,7 +14,7 @@ const HeroSection = () => {
           <div className="flex items-center gap-3 mb-8">
             <span className="inline-block w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
             <span className="text-sm font-mono text-muted-foreground tracking-wide uppercase">
-              Web3 SDE Intern · CTO & Co-founder @ Buildicy
+              Web3 Infrastructure Engineer · GetNow Solutions
             </span>
           </div>
         </motion.div>
@@ -94,7 +94,7 @@ const HeroSection = () => {
       </div>
 
       {/* Right Column: Images */}
-      <motion.div 
+      <motion.div
         className="flex-1 w-full mt-16 lg:mt-0 flex flex-col items-center justify-center relative z-10"
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
@@ -104,16 +104,16 @@ const HeroSection = () => {
         <div className="relative mb-12 group">
           <div className="absolute -inset-1.5 rounded-full bg-gradient-to-tr from-primary via-accent/50 to-primary/20 blur-lg opacity-60 group-hover:opacity-100 transition-all duration-700 pointer-events-none"></div>
           <div className="absolute -inset-0.5 rounded-full bg-gradient-to-b from-white/20 to-transparent opacity-50 z-10 pointer-events-none"></div>
-          <img 
-            src="/Mayur.jpg" 
-            alt="Mayur Profile" 
+          <img
+            src="/Mayur.jpg"
+            alt="Mayur Profile"
             className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full object-cover border-4 border-background shadow-2xl z-20 transition-transform duration-700 group-hover:scale-105"
             draggable="false"
           />
         </div>
 
         {/* Live GitHub Stats (Mac OS Window Style) */}
-        <motion.div 
+        <motion.div
           className="relative w-full max-w-sm md:max-w-md lg:max-w-lg mt-8 group cursor-crosshair"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -134,7 +134,7 @@ const HeroSection = () => {
                 LIVE
               </div>
             </div>
-            
+
             {/* Live Stats Content */}
             <div className="flex flex-col bg-background/50 px-2 pt-2 pb-1">
               <img
