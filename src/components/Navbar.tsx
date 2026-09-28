@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import ResumeModal from "@/components/ResumeModal";
 
 const navItems = [
   { label: "projects", href: "#projects" },
@@ -45,6 +46,7 @@ const Navbar = () => {
             {item.label}
           </a>
         ))}
+        <ResumeModal buttonText="resume" variant="outline" size="sm" className="text-xs font-mono h-8 px-3" />
       </div>
 
       {/* Mobile toggle */}
@@ -73,6 +75,9 @@ const Navbar = () => {
               {item.label}
             </a>
           ))}
+          <div className="pt-2">
+            <ResumeModal buttonText="View Resume" variant="default" size="sm" className="w-full justify-center" />
+          </div>
         </motion.div>
       )}
     </motion.nav>

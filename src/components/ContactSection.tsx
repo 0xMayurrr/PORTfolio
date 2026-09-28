@@ -74,7 +74,7 @@ const ContactSection = () => {
               // let's build something that matters.
             </h2>
             <p className="text-muted-foreground font-body leading-relaxed mb-8">
-              I'm looking for Web3 Infrastructure / Protocol Engineering roles — internship or full-time. I work across Web3, full-stack, and AI. Remote-first, open to relocation for the right team.
+              I am actively seeking Software Engineering, Backend Engineering, and Full-Stack Engineering roles — full-time or internship. Open to building products end-to-end. Remote-first, open to relocation for the right team.
             </p>
 
             <div className="space-y-4">

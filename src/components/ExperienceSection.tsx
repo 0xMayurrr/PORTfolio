@@ -34,7 +34,7 @@ const ExperienceSection = () => {
 
               <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-2">
                 <h3 className="text-xl md:text-2xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
-                  Web3 Software Engineer Intern
+                  Software Engineer Intern
                 </h3>
                 <span className="text-sm font-mono text-muted-foreground">
                   @ GetNow Solutions
@@ -45,19 +45,22 @@ const ExperienceSection = () => {
                 March 2026 — Present
               </p>
 
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <p className="text-sm text-muted-foreground font-body leading-relaxed max-w-xl">
                   <span className="text-primary/50 mr-2 font-mono">{"->"}</span>
-                  Designing and deploying secure smart contract layers and multi-chain wallet integrations.
+                  Engineered <strong className="text-foreground font-semibold">GlobalPay Hub</strong>, a production financial infrastructure platform integrating banking, FX, and KYC providers via unified backend APIs.
                 </p>
                 <p className="text-sm text-muted-foreground font-body leading-relaxed max-w-xl">
                   <span className="text-primary/50 mr-2 font-mono">{"->"}</span>
-                  Optimizing Web3 transaction flows, high-performance RPC networks, and AI-native blockchain systems.
+                  Built resilient transaction processing pipelines with webhook ingestion, idempotency controls, retry mechanics, and automated error recovery.
+                </p>
+                <p className="text-sm text-muted-foreground font-body leading-relaxed max-w-xl">
+                  <span className="text-primary/50 mr-2 font-mono">{"->"}</span>
+                  Designed high-reliability database schemas, optimized API query latency, participated in code reviews, and managed production deployments.
                 </p>
               </div>
             </motion.div>
 
-           
             {/* E-Cell */}
             <motion.div
               initial={{ opacity: 0, x: -16 }}
@@ -69,10 +72,10 @@ const ExperienceSection = () => {
 
               <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-2">
                 <h3 className="text-xl md:text-2xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
-                  Led Innovation
+                  Head of Technical Innovation
                 </h3>
                 <span className="text-sm font-mono text-muted-foreground">
-                  @ E-Cell Innovation & Incubation Cell
+                  @ E-Cell Incubation Cell
                 </span>
               </div>
 
@@ -83,11 +86,11 @@ const ExperienceSection = () => {
               <div className="space-y-2">
                 <p className="text-sm text-muted-foreground font-body leading-relaxed max-w-xl">
                   <span className="text-primary/50 mr-2 font-mono">{"->"}</span>
-                  Pioneered student incubation programs, helping transition ideas into functional Web3/AI startups.
+                  Led student incubation programs, guiding product architecture, backend design, and MVP validation for early-stage software projects.
                 </p>
                 <p className="text-sm text-muted-foreground font-body leading-relaxed max-w-xl">
                   <span className="text-primary/50 mr-2 font-mono">{"->"}</span>
-                  Organized hackathons, developer bootcamps, and technical workshops on emergent technologies.
+                  Organized hackathons (including Hack Beyond The Limits with 200+ participants), developer bootcamps, and technical workshops.
                 </p>
               </div>
             </motion.div>
@@ -117,17 +120,17 @@ const ExperienceSection = () => {
               <div className="space-y-2">
                 <p className="text-sm text-muted-foreground font-body leading-relaxed max-w-xl">
                   <span className="text-primary/50 mr-2 font-mono">{"->"}</span>
-                  Advocated for robotics, AI integration, and blockchain developer education in partnership with national councils.
+                  Advocated software engineering best practices, system architecture, and AI technology integration across university student chapters.
                 </p>
                 <p className="text-sm text-muted-foreground font-body leading-relaxed max-w-xl">
                   <span className="text-primary/50 mr-2 font-mono">{"->"}</span>
-                  Mentored aspiring developers and coordinated tech evangelism programs across student chapters.
+                  Mentored student teams on API design, backend reliability, and rapid problem-solving for national hackathons.
                 </p>
               </div>
             </motion.div>
           </div>
 
-          {/* Right Side: Visual Data Widget to fill empty space */}
+          {/* Right Side: Visual Data Widget */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -139,21 +142,25 @@ const ExperienceSection = () => {
                 <span className="text-xs font-mono text-muted-foreground">STATUS</span>
                 <span className="text-xs font-mono text-primary flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                  ACTIVE_DEPLOYMENT
+                  AVAILABLE_FOR_HIRING
                 </span>
               </div>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-muted-foreground">Focus</span>
-                  <span className="text-sm font-medium text-right">Web3, AI & Emerging Technologies</span>
+                  <span className="text-sm font-medium text-right">Backend & Full-Stack Systems</span>
                 </div>
                 <div className="flex justify-between items-center mt-2">
                   <span className="text-sm text-muted-foreground">Current Stack</span>
-                  <span className="text-sm font-medium text-right">Solidity / TypeScript</span>
+                  <span className="text-sm font-medium text-right">TypeScript / Node / Node.js / Go / SQL</span>
+                </div>
+                <div className="flex justify-between items-center mt-2">
+                  <span className="text-sm text-muted-foreground">Execution Flow</span>
+                  <span className="text-xs font-mono text-primary text-right">BUILD → INTEGRATE → SHIP</span>
                 </div>
                 <div className="flex justify-between items-center mt-2">
                   <span className="text-sm text-muted-foreground">Location</span>
-                  <span className="text-sm font-medium text-right">Remote</span>
+                  <span className="text-sm font-medium text-right">Remote / Open to Relocation</span>
                 </div>
               </div>
             </div>

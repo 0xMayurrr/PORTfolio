@@ -3,27 +3,57 @@ import { useRef } from "react";
 
 const stack = [
   {
-    category: "Web3 & Blockchain",
+    category: "01. Languages",
     items: [
-      "Solidity", "Hardhat", "Ethers.js", "Wagmi", "OpenZeppelin",
-      "ZK-SNARKs", "Semaphore", "W3C DIDs", "IPFS",
-      "Ethereum", "Polygon", "Arbitrum", "Base", "Aptos"
+      "TypeScript", "JavaScript", "Go", "Python", "Java", "SQL", "C++", "Solidity"
     ]
   },
   {
-    category: "Full Stack Engineering",
+    category: "02. Backend & APIs",
     items: [
-      "TypeScript", "JavaScript", "React", "Next.js",
-      "Node.js", "Express", "PostgreSQL", "MongoDB",
-      "Supabase", "Docker", "Vercel", "Railway"
+      "Node.js", "Express", "REST APIs", "Webhooks", "Microservices", "System Architecture", "Middleware"
     ]
   },
   {
-    category: "AI & Machine Learning",
+    category: "03. Frontend",
     items: [
-      "OpenAI API", "Gemini API", "HuggingFace",
-      "LangChain", "RAG Systems", "AI Agents",
-      "FinBERT NLP"
+      "React", "Next.js", "Tailwind CSS", "Redux", "HTML5", "CSS3", "Vite"
+    ]
+  },
+  {
+    category: "04. Mobile",
+    items: [
+      "React Native", "Expo", "Mobile UI"
+    ]
+  },
+  {
+    category: "05. Databases & Storage",
+    items: [
+      "PostgreSQL", "MongoDB", "Redis", "Supabase", "Firebase", "Schema Design"
+    ]
+  },
+  {
+    category: "06. Cloud & Infrastructure",
+    items: [
+      "Docker", "Vercel", "Railway", "AWS", "Linux", "Git / GitHub", "CI/CD"
+    ]
+  },
+  {
+    category: "07. Testing & Engineering",
+    items: [
+      "Vitest", "Jest", "Unit Testing", "API Security", "Performance Tuning", "Debugging"
+    ]
+  },
+  {
+    category: "08. AI & Machine Learning",
+    items: [
+      "OpenAI API", "Gemini API", "RAG Systems", "LangChain", "HuggingFace", "AI Agents", "FinBERT NLP"
+    ]
+  },
+  {
+    category: "09. Blockchain & Web3",
+    items: [
+      "Hardhat", "Ethers.js", "Wagmi", "OpenZeppelin", "ZK-SNARKs", "Semaphore", "W3C DIDs", "IPFS", "Ethereum", "Hyperledger Fabric"
     ]
   }
 ];

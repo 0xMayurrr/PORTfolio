@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ResumeModal from "@/components/ResumeModal";
 
 const HeroSection = () => {
   return (
@@ -14,7 +15,7 @@ const HeroSection = () => {
           <div className="flex items-center gap-3 mb-8">
             <span className="inline-block w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
             <span className="text-sm font-mono text-muted-foreground tracking-wide uppercase">
-              Web3 Infrastructure Engineer · GetNow Solutions
+              Software Engineer · GetNow Solutions
             </span>
           </div>
         </motion.div>
@@ -44,10 +45,10 @@ const HeroSection = () => {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.18 }}
         >
           <p className="text-xl md:text-2xl font-mono font-bold text-foreground">
-            Web3 Infrastructure Engineer
+            Software Engineer who builds & ships real products.
           </p>
           <p className="text-xs md:text-sm font-mono text-muted-foreground uppercase tracking-widest">
-            RPC Gateways // ZK Protocols // AI Systems
+            Backend Systems // APIs & Integrations // Full-Stack
           </p>
         </motion.div>
 
@@ -57,7 +58,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
         >
-          I engineer the critical layers beneath modern dApps. No fluff, just scalable infrastructure, non-custodial smart contracts, and privacy-preserving identity systems.
+          I build and ship products end-to-end — taking full technical ownership from system architecture and backend APIs to cloud deployment.
         </motion.p>
 
         <motion.div
@@ -100,8 +101,35 @@ const HeroSection = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
       >
-        {/* Glowing circular profile pic element */}
+        {/* Glowing circular profile pic element with Floating Resume Badge */}
         <div className="relative mb-12 group">
+          {/* Floating Resume Callout Badge Top Right */}
+          <motion.div
+            className="absolute -top-12 -right-4 sm:-right-10 z-30 flex flex-col items-end"
+            initial={{ opacity: 0, y: 10, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
+            <motion.div
+              animate={{ y: [0, -6, 0] }}
+              transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+              className="flex flex-col items-end gap-1"
+            >
+              <ResumeModal
+                buttonText="Download my Resume — Why wait? 🚀"
+                variant="default"
+                size="sm"
+                className="text-xs font-mono font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_rgba(var(--primary),0.5)] border border-primary-foreground/20 rounded-full px-4 py-2 hover:scale-105 transition-all cursor-pointer"
+              />
+              <div className="flex items-center gap-1.5 pr-4 text-primary">
+                <span className="text-[10px] font-mono font-semibold tracking-wider text-muted-foreground uppercase">
+                  Click to preview
+                </span>
+                <ArrowDown className="w-3.5 h-3.5 text-primary animate-bounce" />
+              </div>
+            </motion.div>
+          </motion.div>
+
           <div className="absolute -inset-1.5 rounded-full bg-gradient-to-tr from-primary via-accent/50 to-primary/20 blur-lg opacity-60 group-hover:opacity-100 transition-all duration-700 pointer-events-none"></div>
           <div className="absolute -inset-0.5 rounded-full bg-gradient-to-b from-white/20 to-transparent opacity-50 z-10 pointer-events-none"></div>
           <img
@@ -136,11 +164,14 @@ const HeroSection = () => {
             </div>
 
             {/* Live Stats Content */}
-            <div className="flex flex-col bg-background/50 px-2 pt-2 pb-1">
+            <div className="flex flex-col bg-card/80 p-4 items-center justify-center min-h-[100px]">
               <img
-                src="https://github-readme-activity-graph.vercel.app/graph?username=0xMayurrr&bg_color=00000000&color=58a6ff&line=58a6ff&point=39d353&area=true&area_color=39d35320&hide_border=true&radius=4"
+                src="https://ghchart.rshah.org/39d353/0xMayurrr"
+                onError={(e) => {
+                  e.currentTarget.src = "https://github-readme-stats.vercel.app/api?username=0xMayurrr&show_icons=true&theme=dark&hide_border=true&bg_color=09090b&title_color=39d353&text_color=94a3b8";
+                }}
                 alt="GitHub Contribution Graph"
-                className="w-full h-auto mix-blend-screen opacity-90 group-hover:opacity-100 transition-opacity"
+                className="w-full h-auto opacity-95 group-hover:opacity-100 transition-opacity rounded"
                 draggable="false"
               />
             </div>

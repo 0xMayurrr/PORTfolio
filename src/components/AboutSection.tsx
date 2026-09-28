@@ -3,16 +3,16 @@ import { useRef } from "react";
 import { User } from "lucide-react";
 
 const interests = [
-  "Problem Solving", "Smart Assistants", "Secure Payments",
-  "Mobile Apps", "User Experience", "Data Security",
-  "Startups", "Automation",
+  "Backend Architecture", "API Design", "System Infrastructure",
+  "Database Optimization", "Product Ownership", "Integrations & Webhooks",
+  "Hackathons & Open Source", "Cloud Deployments",
 ];
 
 const achievements = [
-  { emoji: "🏆", text: "Innovation Competition Winner" },
-  { emoji: "🚀", text: "10+ Hackathons" },
-  { emoji: "🌍", text: "Community Project Helper" },
-  { emoji: "🛡️", text: "Secure Systems Creator" },
+  { emoji: "🏆", text: "7+ Hackathon Wins & Top Placements" },
+  { emoji: "🚀", text: "15+ Hackathons & 15+ Products Shipped" },
+  { emoji: "👥", text: "Organized Hack Beyond Limits (200+ Devs)" },
+  { emoji: "🛡️", text: "End-to-End Production Systems & APIs" },
 ];
 
 const AboutSection = () => {
@@ -37,15 +37,15 @@ const AboutSection = () => {
               // about
             </h2>
             <p className="text-muted-foreground font-body leading-relaxed mb-8">
-              Dive into the background of a passionate developer obsessed with creating real value.
+              Software Engineer taking complete ownership of products from idea to production deployment.
             </p>
 
             {/* Stats */}
             <div className="space-y-4">
               {[
-                { value: "8+", label: "projects shipped" },
-                { value: "10+", label: "hackathons" },
-                { value: "2024 -Now", label: "building in public" },
+                { value: "15+", label: "projects shipped" },
+                { value: "15+", label: "hackathons (7+ wins)" },
+                { value: "BUILD -> SHIP", label: "end-to-end execution" },
               ].map((stat) => (
                 <div key={stat.label} className="border-l-2 border-primary pl-4">
                   <div className="text-2xl font-bold font-mono text-foreground">{stat.value}</div>
@@ -73,7 +73,7 @@ const AboutSection = () => {
                 </div>
                 <div className="flex flex-col gap-1">
                   <span className="text-muted-foreground text-xs uppercase tracking-widest">role</span>
-                  <span className="text-accent font-semibold text-base">Web3 Builder & AI Enthusiast</span>
+                  <span className="text-accent font-semibold text-base">Software Engineer (Backend & Full-Stack)</span>
                 </div>
                 <div className="flex flex-col gap-1">
                   <span className="text-muted-foreground text-xs uppercase tracking-widest">education</span>
@@ -92,7 +92,7 @@ const AboutSection = () => {
             {/* Bio */}
             <div className="p-6 md:p-8 border border-border bg-card">
               <p className="text-muted-foreground font-body text-pretty text-lg leading-relaxed">
-                Experience in building dApps, smart contracts, and AI-powered applications. I care about making technology accessible, secure, and genuinely useful — whether that's a decentralized marketplace or an intelligent campus assistant.
+                I thrive on taking software products end-to-end: <strong className="text-foreground font-semibold">BUILD → INTEGRATE → DEBUG → TEST → SHIP</strong>. Whether engineering financial infrastructure backends, high-concurrency API gateways, or AI discovery systems, I take full engineering ownership. I also lead developer communities, organize hackathons (such as Hack Beyond The Limits with 200+ participants), mentor student teams, and contribute to open source.
               </p>
             </div>
 

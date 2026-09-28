@@ -1,19 +1,25 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Trophy } from "lucide-react";
+import { Trophy, Award, Users, Flame } from "lucide-react";
 
 const records = [
-  { name: "Tech Masters '26", result: "Winner" },
-  { name: "RAC-A-THON", result: "Winner" },
+  { name: "Tech Masters '26", result: "1st Place Winner" },
+  { name: "RAC-A-THON", result: "1st Place Winner" },
   { name: "Google Dev Hackathon", result: "Runner Up" },
-  { name: "HACKTU 6.0", result: "Finalist" },
-  { name: "WE Hack", result: "Top 6" },
+  { name: "HACKTU 6.0", result: "Top Finalist" },
+  { name: "WE Hack", result: "Top 6 Winner" },
   { name: "Hack N Win 2.0", result: "Finalist" },
-  { name: "Deep Funding Round", result: "Top 5" },
+  { name: "Deep Funding Round", result: "Top 5 Global" },
+  { name: "Hack Beyond Limits", result: "Lead Organizer (200+ Devs)" },
+  { name: "Smart India Hackathon", result: "Technical Mentor" },
   { name: "Build on Aptos", result: "Finalist" },
-  { name: "Pivot Hackathon", result: "Finalist" },
-  { name: "Hack Beyond Limits", result: "Organizer" },
-  { name: "Smart India Hackathon", result: "Mentor" },
+];
+
+const stats = [
+  { icon: Trophy, label: "15+ HACKATHONS", sub: "Rapid Product Building" },
+  { icon: Award, label: "7+ WINS & TOP FINISHES", sub: "Proven Problem Solving" },
+  { icon: Users, label: "200+ PARTICIPANTS", sub: "Organized Hack Beyond Limits" },
+  { icon: Flame, label: "STUDENT MENTOR", sub: "Mentored SIH & Team Builds" },
 ];
 
 const TrackRecordSection = () => {
@@ -30,11 +36,37 @@ const TrackRecordSection = () => {
           transition={{ duration: 0.5 }}
           className="mb-10"
         >
+          <p className="text-xs font-mono text-primary uppercase tracking-widest flex items-center gap-2 mb-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+            RAPID_EXECUTION_&_LEADERSHIP
+          </p>
           <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-foreground">
-            TRACK_RECORD
+            HACKATHONS_&_RECORD
           </h2>
         </motion.div>
 
+        {/* Hackathon Summary Banner */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+          {stats.map((item, i) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: 12 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="border border-border/60 bg-card/40 p-4 rounded-lg backdrop-blur-sm flex items-center gap-4"
+            >
+              <div className="p-2.5 rounded-md bg-primary/10 border border-primary/20 text-primary">
+                <item.icon className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-xs font-mono font-bold text-foreground tracking-wide">{item.label}</p>
+                <p className="text-[11px] font-mono text-muted-foreground">{item.sub}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Record Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {records.map((record, i) => (
             <motion.div
