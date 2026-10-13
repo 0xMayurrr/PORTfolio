@@ -90,11 +90,11 @@ const TechStackSection = () => {
                 {group.category}
                 <span className="w-1.5 h-1.5 rounded-full bg-border group-hover:bg-primary transition-colors" />
               </h3>
-              
+
               <div className="flex flex-wrap gap-2">
                 {group.items.map((item) => (
-                  <span 
-                    key={item} 
+                  <span
+                    key={item}
                     className="text-xs font-mono px-2 py-1 bg-secondary/50 border border-border/50 rounded-sm text-muted-foreground group-hover:text-foreground transition-colors"
                   >
                     {item}

@@ -59,7 +59,7 @@ const ContactSection = () => {
   return (
     <section id="contact" className="px-6 md:px-16 lg:px-24 py-24 pb-32">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-        
+
         {/* Left Column: Heading */}
         <motion.div
           ref={ref}
@@ -106,7 +106,7 @@ const ContactSection = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
             >
-              
+
               <div className="relative">
                 <label htmlFor="name" className="text-xs font-mono text-muted-foreground mb-1.5 block uppercase tracking-wide">
                   name

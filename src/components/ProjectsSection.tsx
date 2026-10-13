@@ -177,7 +177,7 @@ const ProjectsSection = () => {
             >
               {/* Glowing Background Effect on Hover */}
               <div className="absolute -inset-2 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl z-0 pointer-events-none" />
-              
+
               <div className="relative z-10 flex flex-col h-full">
                 {/* Card top bar */}
                 <div className="flex items-center justify-between px-5 py-4 border-b border-border/50 bg-background/50">
@@ -192,7 +192,7 @@ const ProjectsSection = () => {
                   <h3 className="text-2xl sm:text-3xl font-black tracking-tight mb-4 group-hover:text-primary transition-colors duration-300">
                     {project.title}
                   </h3>
-                  
+
                   {/* Clamped description to reduce text wall */}
                   <p className="text-sm text-muted-foreground font-body leading-relaxed flex-1 mb-8 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
                     {project.description}
@@ -245,9 +245,8 @@ const ProjectsSection = () => {
           <button
             key={i}
             onClick={() => setActive(i)}
-            className={`h-0.5 transition-all duration-300 ${
-              i === active ? "bg-primary w-6" : "bg-border w-3"
-            }`}
+            className={`h-0.5 transition-all duration-300 ${i === active ? "bg-primary w-6" : "bg-border w-3"
+              }`}
           />
         ))}
       </motion.div>

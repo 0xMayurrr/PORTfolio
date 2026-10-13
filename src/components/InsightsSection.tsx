@@ -73,7 +73,7 @@ const InsightsSection = () => {
                       {item.title}
                     </h3>
                   </div>
-                  
+
                   <div className="mt-4 md:mt-0 opacity-50 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-4">
                     <div className={`h-px w-12 hidden md:block transition-colors duration-300 ${isClickable ? "bg-primary" : "bg-border"}`} />
                     {isClickable ? (

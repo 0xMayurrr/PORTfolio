@@ -3,23 +3,23 @@ import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 const contributions = [
-  { 
-    repo: "OpenZeppelin", 
-    type: "Fixed yarn classic v1.x install docs in Contracts Wizard", 
-    status: "Merged", 
-    url: "https://github.com/OpenZeppelin/contracts-wizard/pull/782" 
+  {
+    repo: "OpenZeppelin",
+    type: "Fixed yarn classic v1.x install docs in Contracts Wizard",
+    status: "Merged",
+    url: "https://github.com/OpenZeppelin/contracts-wizard/pull/782"
   },
-  { 
-    repo: "Scaffold-ETH 2", 
-    type: "Made contractAddress optional in useScaffoldReadContract", 
-    status: "Shipped", 
-    url: "https://github.com/scaffold-eth/scaffold-eth-2" 
+  {
+    repo: "Scaffold-ETH 2",
+    type: "Made contractAddress optional in useScaffoldReadContract",
+    status: "Shipped",
+    url: "https://github.com/scaffold-eth/scaffold-eth-2"
   },
-  { 
-    repo: "Panana Predictions", 
-    type: "Added HuggingFace FinBERT sentiment oracle", 
-    status: "Shipped", 
-    url: "https://github.com/servrox-solutions/panana-predictions" 
+  {
+    repo: "Panana Predictions",
+    type: "Added HuggingFace FinBERT sentiment oracle",
+    status: "Shipped",
+    url: "https://github.com/servrox-solutions/panana-predictions"
   },
 ];
 

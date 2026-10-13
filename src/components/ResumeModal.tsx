@@ -9,6 +9,7 @@ import {
   DialogDescription,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { RESUME_CONFIG } from "@/config/resume";
 
 interface ResumeModalProps {
   variant?: "default" | "outline" | "secondary" | "brutal" | "ghost" | "link";
@@ -49,30 +50,30 @@ const ResumeModal = ({
             </div>
             <div>
               <DialogTitle className="text-lg font-mono font-bold tracking-tight text-foreground flex items-center gap-2">
-                Mayur P — Resume
+                {RESUME_CONFIG.title}
                 <span className="text-[10px] font-mono px-2 py-0.5 bg-primary/10 text-primary border border-primary/20 rounded uppercase tracking-widest">
-                  PDF
+                  PDF v7
                 </span>
               </DialogTitle>
               <DialogDescription className="text-xs font-mono text-muted-foreground mt-0.5">
-                Software Engineer | Backend & Full-Stack
+                {RESUME_CONFIG.subtitle}
               </DialogDescription>
             </div>
           </div>
 
           <div className="flex items-center gap-2 mr-6">
             <a
-              href="/Mayur_P_Resume.pdf"
-              download="Mayur_P_Resume.pdf"
+              href={RESUME_CONFIG.path}
+              download={RESUME_CONFIG.downloadName}
               className="hidden sm:inline-flex"
             >
-              <Button size="sm" variant="default" className="gap-2 font-mono text-xs">
+              <Button size="sm" variant="default" className="gap-2 font-mono text-xs shadow-[0_0_15px_rgba(var(--primary),0.3)]">
                 <Download className="w-3.5 h-3.5" />
                 Download
               </Button>
             </a>
             <a
-              href="/Mayur_P_Resume.pdf"
+              href={RESUME_CONFIG.path}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex"
@@ -88,7 +89,7 @@ const ResumeModal = ({
         {/* PDF Viewer Body */}
         <div className="flex-1 w-full h-full bg-muted/20 relative p-2 sm:p-4 overflow-hidden">
           <iframe
-            src="/Mayur_P_Resume.pdf#toolbar=0"
+            src={`${RESUME_CONFIG.path}#toolbar=0`}
             className="w-full h-full rounded-lg border border-border/60 bg-background shadow-inner"
             title="Mayur P Resume PDF Preview"
           />
@@ -98,17 +99,17 @@ const ResumeModal = ({
         <div className="flex items-center justify-between px-6 py-3 border-t border-border/80 bg-secondary/20 font-mono text-xs text-muted-foreground">
           <span className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            Ready for review & download
+            Latest Master SWE Resume v7 ready
           </span>
 
           <div className="flex items-center gap-3">
-            <a href="/Mayur_P_Resume.pdf" download="Mayur_P_Resume.pdf">
+            <a href={RESUME_CONFIG.path} download={RESUME_CONFIG.downloadName}>
               <Button size="sm" variant="default" className="gap-2 font-mono text-xs">
                 <Download className="w-3.5 h-3.5" />
                 Download PDF
               </Button>
             </a>
-            <a href="/Mayur_P_Resume.pdf" target="_blank" rel="noopener noreferrer">
+            <a href={RESUME_CONFIG.path} target="_blank" rel="noopener noreferrer">
               <Button size="sm" variant="outline" className="gap-2 font-mono text-xs">
                 <ExternalLink className="w-3.5 h-3.5" />
                 Open tab
