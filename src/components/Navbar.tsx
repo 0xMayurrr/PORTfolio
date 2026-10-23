@@ -31,7 +31,7 @@ const Navbar = () => {
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
     >
       <a href="#hero" className="flex items-center gap-2 hover:opacity-80 transition-opacity duration-200">
-        <img src="/logo.png" alt="mayur.dev" className="h-7 w-auto" />
+        <img src="/logo.png" alt="mayur.dev" className="h-5 w-auto" />
       </a>
 
       {/* Desktop */}

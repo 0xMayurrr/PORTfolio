@@ -61,27 +61,20 @@ export default function Loader({ onDone }: { onDone: () => void }) {
     <AnimatePresence>
       {!exiting && (
         <motion.div
-          className="fixed inset-0 z-[100] bg-background flex flex-col items-start justify-center px-8 md:px-24"
+          className="fixed inset-0 z-[100] bg-background flex flex-col items-center justify-center px-8 md:px-24"
           exit={{ opacity: 0, filter: "blur(8px)" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/* top-left brand */}
-          <motion.p
-            className="absolute top-8 left-8 md:left-24 text-sm font-mono font-bold text-foreground"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4 }}
-          >
-            mayur<span className="text-primary">.</span>dev
-          </motion.p>
-
           {/* terminal window */}
           <motion.div
-            className="w-full max-w-lg"
+            className="w-full max-w-lg flex flex-col items-center"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
+            {/* logo above terminal */}
+            <img src="/logo.png" alt="mayur.dev" className="h-8 w-auto mb-8 opacity-90" />
+            <div className="w-full">
             {/* mac dots */}
             <div className="flex gap-1.5 mb-4">
               <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
@@ -93,6 +86,7 @@ export default function Loader({ onDone }: { onDone: () => void }) {
               {lines.map((line) => (
                 <TypingLine key={line.text} text={line.text} delay={line.delay} />
               ))}
+            </div>
             </div>
           </motion.div>
 
