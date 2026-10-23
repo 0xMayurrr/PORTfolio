@@ -73,7 +73,7 @@ export default function Loader({ onDone }: { onDone: () => void }) {
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
             {/* logo above terminal */}
-            <img src="/logo.png" alt="mayur.dev" className="h-8 w-auto mb-8 opacity-90" />
+            <img src="/logo.png" alt="mayur.dev" className="h-8 w-auto mb-8 opacity-90 mix-blend-screen" />
             <div className="w-full">
             {/* mac dots */}
             <div className="flex gap-1.5 mb-4">
