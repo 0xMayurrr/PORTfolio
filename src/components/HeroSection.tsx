@@ -140,28 +140,42 @@ const HeroSection = () => {
           />
         </div>
 
-        {/* Banner Link Preview Card */}
+        {/* Live GitHub Stats (Mac OS Window Style) */}
         <motion.div
-          className="relative w-full max-w-sm md:max-w-md lg:max-w-lg mt-8 group cursor-pointer"
+          className="relative w-full max-w-sm md:max-w-md lg:max-w-lg mt-8 group cursor-crosshair"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           whileHover={{ scale: 1.02, rotate: -1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <a href="https://github.com/0xMayurrr" target="_blank" rel="noopener noreferrer">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 to-accent/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-            <div className="relative rounded-2xl overflow-hidden border border-border bg-card shadow-2xl flex flex-col group-hover:border-primary/50 transition-colors duration-500">
-              <img
-                src="/Neon Terminal Portfolio Banner.png"
-                alt="Mayur Portfolio Banner"
-                className="w-full h-auto object-cover"
-                draggable="false"
-              />
-              <div className="px-4 py-3 bg-card/90 border-t border-border">
-                <p className="text-xs font-mono text-muted-foreground">Mayur P — Software Engineer | Backend &amp; Full-Stack</p>
+          <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 to-accent/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+          <div className="relative rounded-2xl overflow-hidden border border-border bg-card shadow-2xl flex flex-col group-hover:border-primary/50 transition-colors duration-500">
+            {/* Window Header */}
+            <div className="flex items-center justify-between px-4 py-3 bg-secondary/30 border-b border-border">
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+              </div>
+              <div className="text-xs font-mono text-muted-foreground flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                LIVE
               </div>
             </div>
-          </a>
+
+            {/* Live Stats Content */}
+            <div className="flex flex-col bg-card/80 p-4 items-center justify-center min-h-[100px]">
+              <img
+                src="https://ghchart.rshah.org/39d353/0xMayurrr"
+                onError={(e) => {
+                  e.currentTarget.src = "https://github-readme-stats.vercel.app/api?username=0xMayurrr&show_icons=true&theme=dark&hide_border=true&bg_color=09090b&title_color=39d353&text_color=94a3b8";
+                }}
+                alt="GitHub Contribution Graph"
+                className="w-full h-auto opacity-95 group-hover:opacity-100 transition-opacity rounded"
+                draggable="false"
+              />
+            </div>
+          </div>
         </motion.div>
       </motion.div>
 
