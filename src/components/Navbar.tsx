@@ -30,8 +30,8 @@ const Navbar = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
     >
-      <a href="#hero" className="font-mono font-bold text-lg text-foreground hover:text-primary transition-colors duration-200">
-        mayur<span className="text-primary">.</span>
+      <a href="#hero" className="flex items-center gap-2 hover:opacity-80 transition-opacity duration-200">
+        <img src="/logo.png" alt="mayur.dev" className="h-7 w-auto" />
       </a>
 
       {/* Desktop */}
